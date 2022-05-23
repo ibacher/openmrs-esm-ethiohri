@@ -53,6 +53,17 @@ function setupOpenMRS() {
     pages: [],
     extensions: [
       {
+        id: "address-hirarchi-ext",
+        slot: "program-management-summary-slot",
+        load: getAsyncLifecycle(
+          () => import("./pages/address-hirarchi/address-hirarchi.component"),
+          {
+            featureName: "address-hirarchi-extension",
+            moduleName,
+          }
+        ),
+      },
+      {
         id: "ethiohri-program-summary-ext",
         slot: "program-management-summary-slot",
         load: getAsyncLifecycle(
