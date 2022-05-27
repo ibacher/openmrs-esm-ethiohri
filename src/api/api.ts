@@ -2,6 +2,7 @@ import { openmrsFetch } from "@openmrs/esm-framework";
 
 const AH_BASE_WS_API_URL =
   "/module/addresshierarchy/ajax/getPossibleAddressHierarchyEntriesWithParents.form";
+const CONF_BASE_WS_API_URL = "/ws/rest/v1/";
 
 export function performAdressHirarchiSearch(addressField, query) {
   return openmrsFetch(
@@ -22,4 +23,9 @@ export function performAdressHirarchiWithParentSearch(
       method: "GET",
     }
   );
+}
+export function getConfig(query) {
+  return openmrsFetch(`${CONF_BASE_WS_API_URL}systemsetting?q=${query}`, {
+    method: "GET",
+  });
 }
